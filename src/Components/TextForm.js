@@ -29,23 +29,23 @@ export default function TextForm(props) {
 
     return (
         <>
-        <div className="mb-3 my-3">
+        <div className="mb-3 my-3" style={{color: props.mode==='light'?'black':'white'}}>
             <label htmlFor="mybox" className="form-label"><h1>{props.heading}</h1></label>
-            <textarea className="form-control" value={text} onChange={handleOnChange} id="mybox" rows="5"></textarea>
+            <textarea className="form-control" value={text} onChange={handleOnChange} style={{color: props.mode==='light'?'black':'white', backgroundColor : props.mode==='dark'?'#445e54':'white'}} id="mybox" rows="5"></textarea>
         </div>
-        <button className="btn btn-success mx-1 my-1" onClick={handleUPclick} >UPPERCASE</button>
-        <button className="btn btn-success mx-1 my-1" onClick={handleLoclick} >lowercase</button>
-        <button className="btn btn-success mx-1 my-1" onClick={handleclearclick} >Clear</button>
-        <button className="btn btn-success mx-1 my-1" onClick={handlecopy} >Copy</button>
-        <button className="btn btn-success mx-1 my-1" onClick={handlExtraSpaces} >Remove Extra Spaces</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleUPclick} >UPPERCASE</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleLoclick} >lowercase</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleclearclick} >Clear</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handlecopy} >Copy</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handlExtraSpaces} >Remove Extra Spaces</button>
         
-        <div className="container my-5">
+        <div className="container my-5" style={{color: props.mode==='light'?'black':'white'}}>
             <h3>Your text summary</h3>
             <p>{text.split(" ").length} words and {text.length} characters.</p>
             <p>Approx {0.008 * text.split(" ").length} minutes read.</p>
         
             <h3>Preview</h3>
-            <p>{text}</p>
+            <p>{text.length>0?text:'Enter something in the textbox above to preview it here.'}</p>
         </div>
         </>
     )
