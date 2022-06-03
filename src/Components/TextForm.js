@@ -33,7 +33,7 @@ export default function TextForm(props) {
     const [text, setText] = useState("");
 
     return (
-        <>
+        <div className="container">
         <div className="mb-3 my-3" style={{color: props.mode==='light'?'black':'white'}}>
             <label htmlFor="mybox" className="form-label"><h1>{props.heading}</h1></label>
             <textarea className="form-control" value={text} onChange={handleOnChange} style={{color: props.mode==='light'?'black':'white', backgroundColor : props.mode==='dark'?'#445e54':'white'}} id="mybox" rows="5"></textarea>
@@ -52,6 +52,6 @@ export default function TextForm(props) {
             <h3>Preview</h3>
             <p>{text.length>0?text:'Enter something in the textbox above to preview it here.'}</p>
         </div>
-        </>
+        </div>
     )
 }

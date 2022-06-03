@@ -4,6 +4,7 @@ import Navbar from './Components/Navbar';
 import Alert from './Components/Alert';
 import TextForm from './Components/TextForm';
 import About from './Components/About';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const [mode,setMode] = useState('light');
@@ -31,15 +32,16 @@ function App() {
   }
 
   return (
-    < >
+    <Router>
       <Navbar title="Text_Utils" mode={mode} toggleMode={toggleMode}/>
       <Alert alert={alert}/>
-      <div className="container">
-        <TextForm heading='Enter text to analyze below' mode={mode} showAlert={showAlert}/>
-      </div>
-      <hr style={{color:mode==='light'?'black':'white'}} />
-      <About mode={mode} />
-    </>
+      <Routes>
+        <Route exact path="/" element={     
+          <TextForm heading='Enter text to analyze below' mode={mode} showAlert={showAlert}/>
+        }/>
+        <Route exact path="/about" element={<About mode={mode} />}/> 
+      </Routes>
+    </Router>
   );
 }
 
